@@ -31,11 +31,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun LazyColumn() {
+    LazyColumn(modifier = Modifier.fillMaxWidth()){
+        items(5){ index ->
+                Text("Item $index", modifier = Modifier.padding(8.dp))
+        }
+    }
 }
 
 @Preview(showBackground = true)
