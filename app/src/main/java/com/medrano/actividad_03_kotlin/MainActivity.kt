@@ -96,6 +96,52 @@ fun Chip() {
 }
 
 
+//CONTROLES
+
+//AlertDialog
+@Composable
+fun AlertDialog() {
+    var mostrar by remember { mutableStateOf(false) }
+    Button(onClick = { mostrar = true }) { Text("Mostrar Alerta") }
+    if (mostrar) {
+        AlertDialog(
+            onDismissRequest = { mostrar = false },
+            title = { Text("Alerta") },
+            text = { Text("Este es un mensaje de alerta.") },
+            confirmButton = {
+                TextButton(onClick = { mostrar = false }) { Text("Aceptar") }
+            }
+        )
+    }
+}
+
+//Card
+@Composable
+fun Card() {
+    Card(modifier = Modifier.padding(8.dp), elevation = CardDefaults.cardElevation(4.dp)) {
+        Text("Contenido de la tarjeta", modifier = Modifier.padding(16.dp))
+    }
+}
+
+
+//CheckBox
+@Composable
+fun Checkbox() {
+    var checked by remember { mutableStateOf(false) }
+    Row {
+        Checkbox(checked = checked, onCheckedChange = { checked = it })
+        Text(if (checked) "Activado" else "Desactivado")
+    }
+}
+
+//FloatingActionButton
+@Composable
+fun FloatingActionButton() {
+    FloatingActionButton(onClick = {}) {
+        Icon(Icons.Default.Add, contentDescription = null)
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
