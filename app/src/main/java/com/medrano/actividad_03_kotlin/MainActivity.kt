@@ -62,6 +62,41 @@ fun Grid() {
 }
 
 
+//Scafold
+@Composable
+fun Scaffold() {
+    Scaffold(
+        topBar = { TopAppBar(title = { Text("Mi App") }) },
+        floatingActionButton = {
+            FloatingActionButton(onClick = {}) {
+                Icon(Icons.Default.Add, contentDescription = null)
+            }
+        }
+    ) { padding ->
+        Text("Contenido principal", modifier = Modifier.padding(padding))
+    }
+}
+
+//Surface
+@Composable
+fun Surface() {
+    Surface(color = Color.LightGray, modifier = Modifier.padding(8.dp)) {
+        Text("Contenido dentro de Surface", modifier = Modifier.padding(16.dp))
+    }
+}
+
+//Chip
+@Composable
+fun Chip() {
+    AssistChip(
+        onClick = {},
+        label = { Text("Chip de acción") },
+        leadingIcon = { Icon(Icons.Default.Face, contentDescription = null) }
+    )
+}
+
+
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
