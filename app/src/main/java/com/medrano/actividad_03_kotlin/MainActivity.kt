@@ -142,6 +142,33 @@ fun FloatingActionButton() {
     }
 }
 
+//Icon
+@Composable
+fun Icon() {
+    Icon(Icons.Default.Home, contentDescription = "Icono de casa")
+}
+
+
+//Image
+
+@Composable
+fun Image() {
+    Image(
+        painter = painterResource(id = R.drawable.ic_menu_report_image),
+        contentDescription = "Imagen de ejemplo"
+    )
+}
+
+//RadioButton
+
+@Composable
+fun RadioButton() {
+    var seleccionado by remember { mutableStateOf(true) }
+    Row {
+        RadioButton(selected = seleccionado, onClick = { seleccionado = !seleccionado })
+        Text(if (seleccionado) "Seleccionado" else "No seleccionado")
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
