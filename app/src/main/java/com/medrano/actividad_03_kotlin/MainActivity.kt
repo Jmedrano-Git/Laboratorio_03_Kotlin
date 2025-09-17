@@ -49,6 +49,19 @@ fun LazyRow() {
     
 }
 
+//Grid
+@Composable
+fun Grid() {
+    LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.height(200.dp)) {
+        items(6) { index ->
+            Card(modifier = Modifier.padding(8.dp)) {
+                Text("Item $index", modifier = Modifier.padding(16.dp))
+            }
+        }
+    }
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
