@@ -38,6 +38,16 @@ fun LazyColumn() {
         }
     }
 }
+//LazyRow
+@Composable
+fun LazyRow() {
+    LazyRow(modifier = Modifier.fillMaxWidth()){
+        items(4){ index ->
+            Text("Elemento $index", modifier = Modifier.padding(8.dp))
+        }
+    }
+    
+}
 
 @Preview(showBackground = true)
 @Composable
