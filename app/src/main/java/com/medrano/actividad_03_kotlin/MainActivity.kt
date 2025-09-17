@@ -170,6 +170,117 @@ fun RadioButton() {
     }
 }
 
+//Slider
+
+@Composable
+fun Slider() {
+    var valor by remember { mutableStateOf(50f) }
+    Column {
+        Slider(value = valor, onValueChange = { valor = it }, valueRange = 0f..100f)
+        Text("Valor: ${valor.toInt()}")
+    }
+}
+
+
+//Spacer
+@Composable
+fun Spacer() {
+    Column {
+        Text("Arriba")
+        Spacer(modifier = Modifier.height(16.dp))
+        Text("Abajo")
+    }
+}
+
+//Switch
+@Composable
+fun Switch() {
+    var estado by remember { mutableStateOf(false) }
+    Row {
+        Switch(checked = estado, onCheckedChange = { estado = it })
+        Text(if (estado) "Encendido" else "Apagado")
+    }
+}
+
+//TopAppBar
+
+@Composable
+fun TopAppBar() {
+    TopAppBar(title = { Text("Mi barra superior") })
+}
+
+
+//Divider
+
+@Composable
+fun MyDivider() {
+    Column {
+        Text("Encima")
+        Divider()
+        Text("Debajo")
+    }
+}
+
+
+//DropDownMenu
+
+@Composable
+fun DropDownMenu() {
+    var expandido by remember { mutableStateOf(false) }
+    var seleccionado by remember { mutableStateOf("Opción 1") }
+
+    Box {
+        Button(onClick = { expandido = true }) {
+            Text(seleccionado)
+        }
+        DropdownMenu(expanded = expandido, onDismissRequest = { expandido = false }) {
+            DropdownMenuItem(text = { Text("Opción 1") }, onClick = {
+                seleccionado = "Opción 1"
+                expandido = false
+            })
+            DropdownMenuItem(text = { Text("Opción 2") }, onClick = {
+                seleccionado = "Opción 2"
+                expandido = false
+            })
+        }
+    }
+}
+
+//LazyVerticalGrif
+
+@Composable
+fun LazyVerticalGrid() {
+    LazyVerticalGrid(columns = GridCells.Fixed(3), modifier = Modifier.height(200.dp)) {
+        items(9) { index ->
+            Box(modifier = Modifier.padding(8.dp)) {
+                Text("Item $index")
+            }
+        }
+    }
+}
+
+//NavigationRail
+@Composable
+fun NavigationRail() {
+    NavigationRail {
+        NavigationRailItem(
+            selected = true,
+            onClick = {},
+            icon = { Icon(Icons.Default.Home, contentDescription = null) },
+            label = { Text("Inicio") }
+        )
+    }
+}
+
+
+//OutlinedTextField
+
+@Composable
+fun OutlinedTextField() {
+    var texto by remember { mutableStateOf("") }
+    OutlinedTextField(value = texto, onValueChange = { texto = it }, label = { Text("Nombre") })
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
